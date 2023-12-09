@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./assets/fonts/WorkSans-SemiBold.woff2') format('woff2'),
+      url('./assets/fonts/WorkSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./assets/fonts/WorkSans-Regular.woff2') format('woff2'),
+      url('./assets/fonts/WorkSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./assets/fonts/WorkSans-Bold.woff2') format('woff2'),
+      url('./assets/fonts/WorkSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .h-dynamic-screen {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  :is(a, button, input, textarea, select, details, summary):focus-visible {
+    outline: hsl(292, 16%, 49%) solid 0.25rem;
+    outline-offset: 0.25rem;
+  }
+
+  abbr {
+    text-decoration: none;
+  }
+  
+  body::before {
+    /* I don't use simple background because I don't like the way it looks on mobile
+
+       You can use this instead:
+       background: url(assets/images/background-pattern-desktop.svg) no-repeat top/contain; */
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 20rem;
+    max-height: 50vh;
+    background: url(assets/images/background-pattern-desktop.svg) no-repeat top/cover;
+    z-index: -1;
+    top: 0;
+  }
+}
+
+@layer components {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::marker {
+    content: none;
+  }
+
+  details {
+    transition: 50ms;
+  }
+
+  details[open] {
+    padding-bottom: 1em;
+  }
+
+  summary {
+    position: relative;
+  }
+
+  summary::after {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+
+  details[open] summary::after {
+    content: url('./assets/images/icon-minus.svg');
+  }
+
+  details:not([open]) summary::after {
+    content: url('./assets/images/icon-plus.svg');
+  }
+}
