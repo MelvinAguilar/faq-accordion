@@ -74,7 +74,7 @@
     visibility: hidden;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 300ms linear, visibility 300ms linear;
+    transition: max-height 300ms ease-in-out, visibility 300ms ease-in-out, padding 300ms ease-in-out;
   }
 
   button[aria-expanded="true"]+.content {
