@@ -8,21 +8,22 @@ module.exports = {
         "grayish-purple": "hsl(292, 16%, 49%)",
         "dark-purple": "hsl(292, 42%, 14%)",
         "light-purple": "#AD2DF6",
-        "very-light-purple": "rgb(140, 105, 145)",
+        "very-light-purple": "#8B6990",
       },
       boxShadow: {
-        "custom": "0 1.875rem 3.75rem #0000001a",
+        "custom": "0rem 2rem 3.5rem 0rem rgba(80, 0, 118, 0.10)",
       },
       fontSize: {
-        "summary": "1.12rem",
-        "content": "1.02rem",
+        "title": "clamp(2rem, 1.5714rem + 2.1429vw, 3.5rem)",
+        "summary": "1.125rem",
+        "content": "1rem",
       },
       padding: {
-        "summary": "1.4rem",
+        "body": "clamp(0.5rem, 0.0714rem + 2.1429vw, 2rem)",
       },
-      margin: {
-        "content": "1.45rem",
-      },
+      lineHeight: {
+        "title": "normal",
+      }
     },
   },
   plugins: [],
