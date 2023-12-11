@@ -9,6 +9,11 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/apple-touch-icon.png"
+    />
 
     <title>Frontend Mentor | FAQ accordion</title>
     <meta
@@ -18,9 +23,18 @@
     <meta name="keywords" content="html, css, frontend, faq, accordion" />
     <meta name="author" content="MelvinAguilar" />
     <link href="./output.css" rel="stylesheet" />
+    <link rel="manifest" href="./manifest.json" />
+    <script src="./assets/js/index.js" defer></script>
+    <style>
+      [data-state='no-js'] .content {
+        display: none;
+      }
+      [data-state='ready'] .content {
+        display: block;
+      }
+    </style>
   </head>
-  <!--  h-dynamic-screen grid bg-light-pink justify-center pt-[10.4688rem]   -->
-  <body class="h-dynamic-screen grid place-items-center bg-light-pink p-body ">
+  <body class="h-dynamic-screen grid place-items-center bg-light-pink p-body">
     <main
       class="w-full max-w-[37.5rem] rounded-2xl bg-white p-[2.5rem] pb-[1.0063rem] shadow-custom"
     >
@@ -34,58 +48,92 @@
         <abbr title="Frequently Asked Questions">FAQs</abbr>
       </h1>
 
-      <details open>
-        <summary
-          class="py-summary text-summary flex cursor-pointer items-center justify-between gap-2 font-semibold text-dark-purple transition hover:text-light-purple"
+      <div data-state="no-js" class="js-disclosure">
+        <button
+          aria-expanded="true"
+          aria-controls="content-first"
+          disabled
+          title="This button becomes functional once JavaScript is active"
+          type="button"
+          class="js-disclosure-btn | py-summary flex w-full cursor-pointer justify-between gap-2 text-summary font-semibold text-dark-purple transition hover:text-light-purple"
         >
           What is Frontend Mentor, and how will it help me?
-        </summary>
-        <p class="text-content text-very-light-purple">
-          Frontend Mentor offers realistic coding challenges to help developers
-          improve their frontend coding skills with projects in HTML, CSS, and
-          JavaScript. It's suitable for all levels and ideal for portfolio
-          building.
-        </p>
-      </details>
+        </button>
 
-      <details>
-        <summary
-          class="py-summary text-summary flex cursor-pointer items-center justify-between gap-2 font-semibold text-dark-purple transition hover:text-light-purple"
+        <div id="content-first" class="content">
+          <p class="text-content text-very-light-purple">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+            for portfolio building.
+          </p>
+        </div>
+      </div>
+
+      <div data-state="no-js" class="js-disclosure">
+        <button
+          aria-expanded="false"
+          aria-controls="content-second"
+          type="button"
+          class="js-disclosure-btn | py-summary flex w-full cursor-pointer items-center justify-between gap-2 text-summary font-semibold text-dark-purple transition hover:text-light-purple"
         >
           Is Frontend Mentor free?
-        </summary>
-        <p class="text-content text-very-light-purple">
-          Yes, Frontend Mentor offers both free and premium coding challenges,
-          with the free option providing access to a range of projects suitable
-          for all skill levels.
-        </p>
-      </details>
+        </button>
 
-      <details>
-        <summary
-          class="py-summary text-summary flex cursor-pointer items-center justify-between gap-2 font-semibold text-dark-purple transition hover:text-light-purple"
+        <div id="content-second" class="content">
+          <p class="text-content text-very-light-purple">
+            Yes, Frontend Mentor offers both free and premium coding challenges,
+            with the free option providing access to a range of projects
+            suitable for all skill levels.
+          </p>
+        </div>
+      </div>
+
+      <div data-state="no-js" class="js-disclosure">
+        <button
+          aria-expanded="false"
+          aria-controls="content-third"
+          type="button"
+          class="js-disclosure-btn | py-summary flex w-full cursor-pointer items-center justify-between gap-2 text-summary font-semibold text-dark-purple transition hover:text-light-purple"
         >
           Can I use Frontend Mentor projects in my portfolio?
-        </summary>
-        <p class="text-content text-very-light-purple">
-          Yes, you can use projects completed on Frontend Mentor in your
-          portfolio. It's an excellent way to showcase your skills to potential
-          employers!
-        </p>
-      </details>
+        </button>
 
-      <details>
-        <summary
-          class="py-summary text-summary flex cursor-pointer items-center justify-between gap-2 font-semibold text-dark-purple transition hover:text-light-purple"
+        <div id="content-third" class="content">
+          <p class="text-content text-very-light-purple">
+            Yes, you can use projects completed on Frontend Mentor in your
+            portfolio. It's an excellent way to showcase your skills to
+            potential employers!
+          </p>
+        </div>
+      </div>
+
+      <div data-state="no-js" class="js-disclosure">
+        <button
+          aria-expanded="false"
+          aria-controls="content-fourth"
+          type="button"
+          class="js-disclosure-btn | py-summary flex w-full cursor-pointer items-center justify-between gap-2 text-summary font-semibold text-dark-purple transition hover:text-light-purple"
         >
           How can I get help if I'm stuck on a challenge?
-        </summary>
-        <p class="text-content text-very-light-purple">
-          The best place to get help is inside Frontend Mentor's Discord
-          community. There's a help channel where you can ask questions and seek
-          support from other community members.
-        </p>
-      </details>
+        </button>
+
+        <div id="content-fourth" class="content">
+          <p class="text-content text-very-light-purple">
+            The best place to get help is inside Frontend Mentor's Discord
+            community. There's a help channel where you can ask questions and
+            seek support from other community members.
+          </p>
+        </div>
+      </div>
     </main>
+
+    <noscript>
+      <style>
+        [data-state='no-js'] .disclosure__content {
+          display: block;
+        }
+      </style>
+    </noscript>
   </body>
 </html>

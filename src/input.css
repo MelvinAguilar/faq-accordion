@@ -64,41 +64,37 @@
   }
 
   .py-summary {
-    padding-block: 1.5938rem 1.475rem;
+    margin-block: 1.0188rem 0.9rem;
+    padding-block: 0.575rem 0.575rem;
   }
 }
 
 @layer components {
-  summary::-webkit-details-marker {
-    display: none;
+  .content {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms linear, visibility 300ms linear;
   }
 
-  summary::marker {
-    content: none;
+  button[aria-expanded="true"]+.content {
+    visibility: visible;
+    max-height: 12.5rem;
   }
 
-  details {
-    transition: 50ms;
-  }
-
-  details[open] {
-    padding-bottom: 1.5rem;
-  }
-
-  summary {
-    position: relative;
-  }
-
-  summary::after {
+  button[aria-expanded="true"]::after {
+    content: url('./assets/images/icon-minus.svg');
     width: 1.875rem;
     height: 1.875rem;
   }
 
-  details[open] summary::after {
-    content: url('./assets/images/icon-minus.svg');
+  button[aria-expanded="false"]::after {
+    content: url('./assets/images/icon-plus.svg');
+    width: 1.875rem;
+    height: 1.875rem;
   }
 
-  details:not([open]) summary::after {
-    content: url('./assets/images/icon-plus.svg');
+  button[aria-expanded="true"]+.content {
+    padding-bottom: 1.5rem;
   }
 }
